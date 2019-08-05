@@ -3,20 +3,24 @@
 <head>
 	<title>WASM explorer</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-<input type="file" id="input" onchange="selectFile(this.files)">
-<p id="error-wrong-type" style="display: none">Choose a wasm file you stoopid</p>
-<p id="error-multiple-files" style="display: none">Only one at a time daddy uwu</p>
-<p></p>
-<button onclick="dispTable()">explore functions</button>
+<div class="wrap">
+	<input type="file" id="input" onchange="selectFile(this.files)">
+	<p id="error-wrong-type" style="display: none">Choose a wasm file you stoopid</p>
+	<p id="error-multiple-files" style="display: none">Only one at a time daddy uwu</p>
+	<p></p>
+	<button onclick="dispTable()">explore functions</button>
 
-<ul id="ls"></ul>
+	<ul id="ls"></ul>
 
-<input type="text" placeholder="gimme commands" id="cmd">
-<button onclick="runWasm()">run</button>
-<p id="res"></p>
+	<input type="text" placeholder="try functions" id="cmd">
+	<button onclick="runWasm()">run</button>
+</div>
+
+	<p id="res">></p>
 
 <script src="script.js"></script>
 </body>

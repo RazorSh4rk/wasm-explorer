@@ -3,7 +3,7 @@ let file, binFile
 let template = (obj) => {
 	Object.keys(obj).forEach(el => {
 		let li = document.createElement('li')
-		    text = document.createTextNode(el)
+		    text = document.createTextNode('$ ' + el)
 		li.appendChild(text)
 		document.getElementById('ls').appendChild(li)
 	})
@@ -46,6 +46,10 @@ let selectFile = (files) => {
 let runWasm = () => {
 	let cmd = document.getElementById('cmd').value
 	loadModule(file.name).then(instance => {
-		document.getElementById('res').innerHTML = '>> ' + (eval('instance.exports.' + cmd))
+		document.getElementById('res').innerHTML = '> ' + (eval('instance.exports.' + cmd))
 	}) 
 }
+
+document.getElementById('cmd').addEventListener('keypress', (key) => {
+	if(key.key == 'Enter') runWasm()
+})
